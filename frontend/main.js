@@ -8,9 +8,7 @@ let isCelsius = true;
 let currentWeatherData = null;
 
 // Determine backend URL
-const BACKEND_URL = window.location.hostname === 'aqweather-backend.onrender.com'
-  ? 'https://aqweather-backend.onrender.com'
-  : 'http://localhost:8000';
+const BACKEND_URL = "https://aqweather-sankha.onrender.com";
 
 // --- UI State Management ---
 
