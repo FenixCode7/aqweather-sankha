@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="pageTitle">AqWeather</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body id="appBody" class="day">
+
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">⛅</span>
+      <span class="logo-text">AqWeather</span>
+    </div>
+
+    <form class="search-form" id="searchForm">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          name="city"
+          class="search-input"
+          id="searchInput"
+          placeholder="Search city..."
+          autocomplete="off"
+        />
+        <div class="suggestions-dropdown" id="suggestionsDropdown"></div>
+        <button type="button" class="geo-btn" id="geoBtn" title="Use my location">📍</button>
+        <button type="submit" class="search-btn">Search</button>
+      </div>
+    </form>
+
+    <div class="header-right">
+      <span class="unit-toggle" id="unitToggle">°C / °F</span>
+    </div>
+  </header>
+
+  <main class="container" id="mainContent">
+    <!-- Initial Loading State -->
+    <div class="welcome-card" id="loadingState">
+      <div class="welcome-icon">⏳</div>
+      <h2>Loading...</h2>
+      <p>Fetching the latest weather data for you.</p>
+    </div>
+
+    <!-- Error State (Hidden) -->
+    <div class="error-card hidden" id="errorCard">
+      <span class="error-icon">⚠️</span>
+      <p id="errorMessage"></p>
+    </div>
+
+    <!-- Weather Data (Hidden until loaded) -->
+    <div id="weatherData" class="hidden">
+      <section class="hero-card">
+        <div class="hero-left">
+          <div class="location-info">
+            <h1 class="city-name" id="cityName"></h1>
+            <p class="country-region" id="locationDetail"></p>
+            <p class="local-time" id="localTimeDisplay"></p>
+          </div>
+          <div class="temp-display">
+            <img id="conditionIcon" src="" alt="" class="condition-icon-large"/>
+            <div>
+              <span class="temp-big celsius" id="tempC"></span>
+              <span class="temp-big fahrenheit hidden" id="tempF"></span>
+              <p class="feels-like">
+                Feels like
+                <span class="celsius" id="feelsLikeC"></span>
+                <span class="fahrenheit hidden" id="feelsLikeF"></span>
+              </p>
+            </div>
+          </div>
+          <p class="condition-text" id="conditionText"></p>
+        </div>
+
+        <div class="hero-right">
+          <div class="stat-grid">
+            <div class="stat-item">
+              <span class="stat-icon">💧</span>
+              <span class="stat-label">Humidity</span>
+              <span class="stat-value" id="humidityVal"></span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon">💨</span>
+              <span class="stat-label">Wind</span>
+              <span class="stat-value" id="windVal"></span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon">👁️</span>
+              <span class="stat-label">Visibility</span>
+              <span class="stat-value" id="visibilityVal"></span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon">🌡️</span>
+              <span class="stat-label">Pressure</span>
+              <span class="stat-value" id="pressureVal"></span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon">☁️</span>
+              <span class="stat-label">Cloud Cover</span>
+              <span class="stat-value" id="cloudVal"></span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon">🌫️</span>
+              <span class="stat-label">AQI (PM2.5)</span>
+              <span class="stat-value" id="aqiVal"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="alerts-section hidden" id="alertsSection">
+        <!-- Alerts will be injected here -->
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">⏱ Today's Hourly Forecast</h2>
+        <div class="hourly-scroll" id="hourlyForecast">
+          <!-- Hourly cards will be injected here -->
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">📅 5-Day Forecast</h2>
+        <div class="forecast-grid" id="dailyForecast">
+          <!-- Forecast cards will be injected here -->
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">🌅 Sun & Moon</h2>
+        <div class="sun-moon-grid" id="sunMoonData">
+          <!-- Sun/Moon data will be injected here -->
+        </div>
+      </section>
+    </div>
+
+    <!-- Welcome State -->
+    <div class="welcome-card hidden" id="welcomeState">
+      <div class="welcome-icon">⛅</div>
+      <h2>Welcome to AqWeather</h2>
+      <p>Search for any city to get real-time weather, hourly forecast, air quality, and more.</p>
+      <div class="quick-cities" id="quickCities">
+        <span class="quick-label">Quick search:</span>
+        <!-- Quick cities will be injected here -->
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>Built with ❤️ by <strong>Sankha Adak</strong> | Powered by WeatherAPI</p>
+    <p>
+      <a href="https://github.com/FenixCode7" target="_blank">GitHub</a> ·
+      <a href="https://sankha.vercel.app" target="_blank">Portfolio</a>
+    </p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
