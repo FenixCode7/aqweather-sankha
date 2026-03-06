@@ -129,7 +129,4 @@ gunicorn aqweather.wsgi:application
 - LinkedIn: [linkedin.com/in/sankha-adak-b01916366](https://linkedin.com/in/sankha-adak-b01916366)
 - Portfolio: [sankha.vercel.app](https://sankha.vercel.app)
 
----
 
-## 📄 License
-MIT License — free to use and modify.
